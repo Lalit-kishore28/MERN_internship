@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Car Showcase</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #0f0f0f;
+            font-family: "Poppins", sans-serif;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(6px);
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff0000 !important; /* Changed to red for F1 theme */
+            text-shadow: 0px 0px 8px #ff0000;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64") no-repeat center/cover; /* Changed to F1 related image */
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            background: rgba(0,0,0,0.7);
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            text-shadow: 0 0 15px #ff0000;
+        }
+
+        #hero p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        /* Categories */
+        .category-btn {
+            background: #111;
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            transition: 0.3s;
+        }
+
+        .category-btn:hover {
+            background: #ff0000;
+            color: #000;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        /* Car Cards */
+        .car-card {
+            background: #1a1a1a;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .car-card:hover img {
+            transform: scale(1.15);
+        }
+
+        .car-card:hover {
+            box-shadow: 0 0 20px #ff0000;
+            transform: translateY(-5px);
+        }
+
+        /* Search bar */
+        #searchBar {
+            background: #111;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+        }
+
+        #searchBar::placeholder {
+            color: #ff0000;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">F1 Cars 🏎️</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#cars">Cars</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trending">Trending</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="content">
+            <h1>Welcome to F1 Car Showcase</h1>
+            <p>Your ultimate destination for amazing Formula 1 cars</p>
+            <a href="#cars" class="btn btn-danger btn-lg mt-3">Explore Cars</a>
+        </div>
+    </section>
+
+    <!-- Search -->
+    <div class="container mt-4">
+        <input type="text" class="form-control form-control-lg" id="searchBar" placeholder="Search F1 cars...">
+    </div>
+
+    <!-- Car Categories -->
+    <div class="container text-center mt-4">
+        <button class="btn category-btn mx-2">Mercedes</button>
+        <button class="btn category-btn mx-2">Ferrari</button>
+        <button class="btn category-btn mx-2">Red Bull</button>
+        <button class="btn category-btn mx-2">McLaren</button>
+        <button class="btn category-btn mx-2">Classic</button>
+    </div>
+
+    <!-- Cars Section -->
+    <section id="cars" class="container py-5">
+        <h2 class="text-center mb-4 text-danger">F1 Car Collection</h2>
+
+        <div class="row g-4">
+
+            <!-- Car Card -->
+            <div class="col-md-4 car-item" data-name="mercedes w14 lewis hamilton f1 2023">
+                <div class="car-card" data-bs-toggle="modal" data-bs-target="#carModal">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.i19-UWibTIcRsEkbQfLpZQHaFj?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                    <div class="p-3">
+                        <h4>Mercedes W14</h4>
+                        <p class="text-muted">Driven by Lewis Hamilton</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 car-item" data-name="ferrari sf-23 charles leclerc f1 2023">
+                <div class="car-card" data-bs-toggle="modal" data-bs-target="#carModal">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.J54EgcHEiBYsPhafgXLz3AHaEK?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+                    <div class="p-3">
+                        <h4>Ferrari SF-23</h4>
+                        <p class="text-muted">Driven by Charles Leclerc</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 car-item" data-name="red bull rb19 max verstappen f1 2023">
+                <div class="car-card" data-bs-toggle="modal" data-bs-target="#carModal">
+                    <img src="https://i.redd.it/qhqv6vhueq2c1.jpg" alt="">
+                    <div class="p-3">
+                        <h4>Red Bull RB19</h4>
+                        <p class="text-muted">Driven by Max Verstappen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 car-item" data-name="mclaren mcl60 lando norris f1 2023">
+                <div class="car-card" data-bs-toggle="modal" data-bs-target="#carModal">
+                    <img src="https://formularapida.net/wp-content/uploads/2023/11/GP2317_121047DSC_7752-scaled.jpg" alt="">
+                    <div class="p-3">
+                        <h4>McLaren MCL60</h4>
+                        <p class="text-muted">Driven by Lando Norris</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 car-item" data-name="ferrari f2004 michael schumacher classic f1">
+                <div class="car-card" data-bs-toggle="modal" data-bs-target="#carModal">
+                    <img src="https://wallpaperaccess.com/full/10882523.jpg" alt="">
+                    <div class="p-3">
+                        <h4>Ferrari F2004</h4>
+                        <p class="text-muted">Driven by Michael Schumacher</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Car Modal -->
+    <div class="modal fade" id="carModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title">Car Details</h5>
+                    <button class="btn-close bg-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a sample car description. You can add details, specs, history, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container py-5">
+        <h2 class="text-center text-danger mb-3">Contact Us</h2>
+
+        <div class="card p-4 bg-dark border-danger shadow">
+            <input type="text" class="form-control mb-3" placeholder="Your Name" />
+            <input type="email" class="form-control mb-3" placeholder="Your Email" />
+            <textarea class="form-control mb-3" rows="3" placeholder="Message"></textarea>
+            <button class="btn btn-danger w-100">Send</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        ©️ 2025 F1 Car Showcase | Powered by Bootstrap 🏎️
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
